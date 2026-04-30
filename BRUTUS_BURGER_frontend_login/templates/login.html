@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Login | Brutus Burger Master{% endblock %}
+
+{% block content %}
+<section class="card card-auth shadow brutus-card">
+    <h2 class="mb-3">Iniciar sesion</h2>
+
+    <form method="POST" class="form">
+        <label for="correo">Correo</label>
+        <input id="correo" name="correo" type="text" required>
+
+        <label for="password">Contrasena</label>
+        <input id="password" name="password" type="password" placeholder="Minimo 6 caracteres" required>
+
+        <button class="btn btn-warning mt-2 fw-semibold" type="submit">Entrar</button>
+    </form>
+</section>
+{% endblock %}

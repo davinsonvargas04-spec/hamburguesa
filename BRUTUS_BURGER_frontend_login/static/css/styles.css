@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #242424 0%, #121212 40%, #0a0a0a 100%);
+    color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.brutus-nav {
+    background: linear-gradient(90deg, #111111 0%, #1a1a1a 45%, #2a2a2a 100%);
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.brutus-brand {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: #ffb703 !important;
+}
+
+.card-auth {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.brutus-card {
+    background: #1b1b1b;
+    border: 1px solid #2f2f2f;
+    color: #f9fafb;
+}
+
+.subtitle {
+    color: #b7b7b7;
+}
+
+.form {
+    display: grid;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+input {
+    padding: 0.65rem 0.8rem;
+    border: 1px solid #4b4b4b;
+    background: #111;
+    color: #f9fafb;
+    border-radius: 8px;
+}
+
+.hero-brutus {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(120deg, rgba(255, 99, 71, 0.25), rgba(255, 183, 3, 0.22)),
+        linear-gradient(240deg, #181818, #0f0f0f);
+    border: 1px solid #3a3a3a;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 183, 3, 0.2) 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.5;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: rgba(255, 183, 3, 0.15);
+    border: 1px solid rgba(255, 183, 3, 0.4);
+    color: #ffd166;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card {
+    background: #1a1a1a;
+    border: 1px solid #2f2f2f;
+    border-radius: 14px;
+    padding: 1rem;
+}
+
+.feature-card h5 {
+    color: #ffb703;
+    margin-bottom: 0.4rem;
+}
+
+.feature-card p {
+    color: #cdcdcd;
+    margin-bottom: 0;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.dashboard-box {
+    background: #141414;
+    border: 1px solid #2c2c2c;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.label {
+    color: #ffb703;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.value {
+    font-weight: 600;
+    margin: 0;
+}
+
+.brutus-footer {
+    background: #111;
+    border-color: #2f2f2f !important;
+    color: #a1a1a1;
+}

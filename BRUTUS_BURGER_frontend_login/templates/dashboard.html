@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Brutus Burger Master{% endblock %}
+
+{% block content %}
+<section class="card shadow brutus-card">
+    <h2 class="mb-3">Dashboard</h2>
+    <div class="dashboard-grid">
+        <div class="dashboard-box">
+            <p class="label">Nombre</p>
+            <p class="value">{{ user_name }}</p>
+        </div>
+        <div class="dashboard-box">
+            <p class="label">Correo</p>
+            <p class="value">{{ user_email }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

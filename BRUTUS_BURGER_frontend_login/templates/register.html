@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Registro | Brutus Burger Master{% endblock %}
+
+{% block content %}
+<section class="card card-auth shadow brutus-card">
+    <h2 class="mb-3">Registro</h2>
+
+    <form method="POST" class="form">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+
+        <label for="correo">Correo</label>
+        <input id="correo" name="correo" type="text" required>
+
+        <label for="password">Contrasena</label>
+        <input id="password" name="password" type="password" placeholder="Minimo 6 caracteres" required>
+
+        <button class="btn btn-warning mt-2 fw-semibold" type="submit">Crear cuenta</button>
+    </form>
+</section>
+{% endblock %}
