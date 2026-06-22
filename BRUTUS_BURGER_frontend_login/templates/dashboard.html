@@ -18,10 +18,10 @@
             {% if opgg_stats %}
             <p class="value">{{ opgg_stats.summoner_name }} - {{ opgg_stats.region }}</p>
             {% else %}
-            <p class="value">Sin estadisticas registradas</p>
+            <p class="value">Sin estadísticas registradas</p>
             {% endif %}
         </div>
     </div>
-    <a class="btn btn-warning btn-sm rounded-pill mt-3" href="{{ url_for('main.opgg_stats') }}">Gestionar estadisticas OP.GG</a>
+    <a class="btn btn-warning btn-sm rounded-pill mt-3" href="{{ url_for('main.opgg_stats') }}">Gestionar estadísticas OP.GG</a>
 </section>
 {% endblock %}

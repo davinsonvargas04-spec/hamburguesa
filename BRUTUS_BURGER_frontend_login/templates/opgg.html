@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Estadisticas OP.GG | Brutus Burger Master{% endblock %}
+{% block title %}Estadísticas OP.GG | Brutus Burger Master{% endblock %}
 
 {% block content %}
 <section class="card shadow brutus-card mb-4">
     <div class="card-body">
-        <h2 class="mb-3">Recopilar estadisticas OP.GG</h2>
-        <p class="subtitle">Ingresa tus datos actuales para tener un resumen rapido de tu perfil.</p>
+        <h2 class="mb-3">Recopilar estadísticas OP.GG</h2>
+        <p class="subtitle">Ingresa tus datos actuales para tener un resumen rápido de tu perfil.</p>
 
         <form method="post" class="form opgg-form">
             <div class="opgg-grid">
@@ -14,7 +14,7 @@
                     <input id="summoner_name" name="summoner_name" required value="{{ opgg_stats.summoner_name if opgg_stats else '' }}">
                 </div>
                 <div>
-                    <label for="region" class="form-label">Region (ej: las, lan, euw)</label>
+                    <label for="region" class="form-label">Región (ej: las, lan, euw)</label>
                     <input id="region" name="region" required value="{{ opgg_stats.region|lower if opgg_stats else '' }}">
                 </div>
                 <div>
@@ -38,11 +38,11 @@
                     <input id="kda" name="kda" value="{{ opgg_stats.kda if opgg_stats else '' }}">
                 </div>
                 <div>
-                    <label for="main_champion" class="form-label">Campeon principal</label>
+                    <label for="main_champion" class="form-label">Campeón principal</label>
                     <input id="main_champion" name="main_champion" value="{{ opgg_stats.main_champion if opgg_stats else '' }}">
                 </div>
             </div>
-            <button type="submit" class="btn btn-warning mt-3 rounded-pill px-4">Guardar estadisticas</button>
+            <button type="submit" class="btn btn-warning mt-3 rounded-pill px-4">Guardar estadísticas</button>
         </form>
     </div>
 </section>
@@ -57,7 +57,7 @@
                 <p class="value">{{ opgg_stats.summoner_name }}</p>
             </div>
             <div class="dashboard-box">
-                <p class="label">Region</p>
+                <p class="label">Región</p>
                 <p class="value">{{ opgg_stats.region }}</p>
             </div>
             <div class="dashboard-box">

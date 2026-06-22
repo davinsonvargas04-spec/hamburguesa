@@ -37,7 +37,7 @@ def opgg_stats():
         main_champion = request.form.get("main_champion", "").strip()
 
         if not summoner_name or not region:
-            flash("Invocador y region son obligatorios.", "danger")
+            flash("Invocador y región son obligatorios.", "danger")
             return redirect(url_for("main.opgg_stats"))
 
         profile_slug = quote(summoner_name.replace(" ", "-"))
@@ -54,7 +54,7 @@ def opgg_stats():
             "main_champion": main_champion or "Sin registrar",
             "profile_url": profile_url,
         }
-        flash("Estadisticas de OP.GG actualizadas.", "success")
+        flash("Estadísticas de OP.GG actualizadas.", "success")
         return redirect(url_for("main.opgg_stats"))
 
     return render_template("opgg.html", opgg_stats=session.get("opgg_stats"))
