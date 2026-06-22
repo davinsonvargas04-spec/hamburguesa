@@ -11,35 +11,35 @@
             <div class="opgg-grid">
                 <div>
                     <label for="summoner_name" class="form-label">Invocador</label>
-                    <input id="summoner_name" name="summoner_name" required value="{{ opgg_stats.summoner_name if opgg_stats else '' }}">
+                    <input type="text" id="summoner_name" name="summoner_name" required value="{{ opgg_stats.summoner_name if opgg_stats else '' }}">
                 </div>
                 <div>
                     <label for="region" class="form-label">Región (ej: las, lan, euw)</label>
-                    <input id="region" name="region" required value="{{ opgg_stats.region if opgg_stats else '' }}">
+                    <input type="text" id="region" name="region" required value="{{ opgg_stats.region if opgg_stats else '' }}">
                 </div>
                 <div>
                     <label for="ranked_tier" class="form-label">Liga</label>
-                    <input id="ranked_tier" name="ranked_tier" value="{{ opgg_stats.ranked_tier if opgg_stats else '' }}">
+                    <input type="text" id="ranked_tier" name="ranked_tier" value="{{ opgg_stats.ranked_tier if opgg_stats else '' }}">
                 </div>
                 <div>
                     <label for="lp" class="form-label">LP</label>
-                    <input id="lp" name="lp" value="{{ opgg_stats.lp if opgg_stats else '' }}">
+                    <input type="number" id="lp" name="lp" min="0" step="1" value="{{ opgg_stats.lp if opgg_stats else '' }}">
                 </div>
                 <div>
                     <label for="wins" class="form-label">Victorias</label>
-                    <input id="wins" name="wins" value="{{ opgg_stats.wins if opgg_stats else '' }}">
+                    <input type="number" id="wins" name="wins" min="0" step="1" value="{{ opgg_stats.wins if opgg_stats else '' }}">
                 </div>
                 <div>
                     <label for="losses" class="form-label">Derrotas</label>
-                    <input id="losses" name="losses" value="{{ opgg_stats.losses if opgg_stats else '' }}">
+                    <input type="number" id="losses" name="losses" min="0" step="1" value="{{ opgg_stats.losses if opgg_stats else '' }}">
                 </div>
                 <div>
                     <label for="kda" class="form-label">KDA</label>
-                    <input id="kda" name="kda" value="{{ opgg_stats.kda if opgg_stats else '' }}">
+                    <input type="text" id="kda" name="kda" value="{{ opgg_stats.kda if opgg_stats else '' }}">
                 </div>
                 <div>
                     <label for="main_champion" class="form-label">Campeón principal</label>
-                    <input id="main_champion" name="main_champion" value="{{ opgg_stats.main_champion if opgg_stats else '' }}">
+                    <input type="text" id="main_champion" name="main_champion" value="{{ opgg_stats.main_champion if opgg_stats else '' }}">
                 </div>
             </div>
             <button type="submit" class="btn btn-warning mt-3 rounded-pill px-4">Guardar estadísticas</button>
