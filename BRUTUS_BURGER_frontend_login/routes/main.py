@@ -67,16 +67,16 @@ def opgg_stats():
             return redirect(url_for("main.opgg_stats"))
 
         encoded_region = quote(region, safe="")
-        encoded_summoner_name = quote(summoner_name)
+        encoded_summoner_name = quote(summoner_name, safe="")
         profile_url = f"https://www.op.gg/summoners/{encoded_region}/{encoded_summoner_name}"
 
         session["opgg_stats"] = {
             "summoner_name": summoner_name,
             "region": region,
             "ranked_tier": ranked_tier or "Sin registrar",
-            "lp": str(lp_value),
-            "wins": str(wins_value),
-            "losses": str(losses_value),
+            "lp": lp_value,
+            "wins": wins_value,
+            "losses": losses_value,
             "kda": kda or "0.00",
             "main_champion": main_champion or "Sin registrar",
             "profile_url": profile_url,
