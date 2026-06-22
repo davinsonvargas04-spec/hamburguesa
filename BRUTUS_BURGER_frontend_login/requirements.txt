@@ -1,6 +1,6 @@
 Flask
 Flask-SQLAlchemy
-requests
+requests==2.31.0
 PyMySQL
 psycopg2-binary
 gunicorn
