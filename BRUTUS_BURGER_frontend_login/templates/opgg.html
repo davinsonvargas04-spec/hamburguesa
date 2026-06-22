@@ -15,7 +15,7 @@
                 </div>
                 <div>
                     <label for="region" class="form-label">Región (ej: las, lan, euw)</label>
-                    <input id="region" name="region" required value="{{ opgg_stats.region|lower if opgg_stats else '' }}">
+                    <input id="region" name="region" required value="{{ opgg_stats.region if opgg_stats else '' }}">
                 </div>
                 <div>
                     <label for="ranked_tier" class="form-label">Liga</label>
@@ -58,7 +58,7 @@
             </div>
             <div class="dashboard-box">
                 <p class="label">Región</p>
-                <p class="value">{{ opgg_stats.region }}</p>
+                <p class="value">{{ opgg_stats.region|upper }}</p>
             </div>
             <div class="dashboard-box">
                 <p class="label">Liga</p>

@@ -40,12 +40,12 @@ def opgg_stats():
             flash("Invocador y región son obligatorios.", "danger")
             return redirect(url_for("main.opgg_stats"))
 
-        profile_slug = quote(summoner_name.replace(" ", "-"))
+        profile_slug = quote(summoner_name)
         profile_url = f"https://www.op.gg/summoners/{region}/{profile_slug}"
 
         session["opgg_stats"] = {
             "summoner_name": summoner_name,
-            "region": region.upper(),
+            "region": region,
             "ranked_tier": ranked_tier or "Sin registrar",
             "lp": lp or "0",
             "wins": wins or "0",

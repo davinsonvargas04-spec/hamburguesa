@@ -16,7 +16,7 @@
         <div class="dashboard-box">
             <p class="label">OP.GG</p>
             {% if opgg_stats %}
-            <p class="value">{{ opgg_stats.summoner_name }} - {{ opgg_stats.region }}</p>
+            <p class="value">{{ opgg_stats.summoner_name }} - {{ opgg_stats.region|upper }}</p>
             {% else %}
             <p class="value">Sin estadísticas registradas</p>
             {% endif %}
