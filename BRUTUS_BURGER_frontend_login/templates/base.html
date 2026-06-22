@@ -17,6 +17,7 @@
             <div class="ms-auto d-flex gap-2">
                 {% if session.get('user_id') %}
                     <a class="btn btn-outline-light btn-sm rounded-pill px-3" href="{{ url_for('main.dashboard') }}">Dashboard</a>
+                    <a class="btn btn-outline-light btn-sm rounded-pill px-3" href="{{ url_for('main.opgg_stats') }}">OP.GG</a>
                     <a class="btn btn-warning btn-sm rounded-pill px-3" href="{{ url_for('auth.logout') }}">Cerrar sesion</a>
                 {% else %}
                     <a class="btn btn-outline-light btn-sm rounded-pill px-3" href="{{ url_for('auth.login') }}">Login</a>
