@@ -108,6 +108,21 @@ input {
     padding: 1rem;
 }
 
+.opgg-form {
+    margin-bottom: 0;
+}
+
+.opgg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+}
+
+.opgg-grid .form-label {
+    margin-bottom: 0.35rem;
+    color: #cfcfcf;
+}
+
 .label {
     color: #ffb703;
     margin-bottom: 0.25rem;

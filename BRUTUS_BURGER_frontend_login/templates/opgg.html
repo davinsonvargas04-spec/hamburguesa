@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Estadísticas OP.GG | Brutus Burger Master{% endblock %}
+
+{% block content %}
+<section class="card shadow brutus-card mb-4">
+    <div class="card-body">
+        <h2 class="mb-3">Recopilar estadísticas OP.GG</h2>
+        <p class="subtitle">Ingresa tus datos actuales para tener un resumen rápido de tu perfil.</p>
+
+        <form method="post" class="form opgg-form">
+            <div class="opgg-grid">
+                <div>
+                    <label for="summoner_name" class="form-label">Invocador</label>
+                    <input type="text" id="summoner_name" name="summoner_name" required value="{{ opgg_stats.summoner_name if opgg_stats else '' }}">
+                </div>
+                <div>
+                    <label for="region" class="form-label">Región (ej: las, lan, euw)</label>
+                    <select id="region" name="region" class="form-select" required>
+                        <option value="">Selecciona una región</option>
+                        {% for code, name in supported_regions %}
+                        <option value="{{ code }}" {% if opgg_stats and opgg_stats.region == code %}selected{% endif %}>{{ code|upper }} - {{ name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="ranked_tier" class="form-label">Liga</label>
+                    <input type="text" id="ranked_tier" name="ranked_tier" value="{{ opgg_stats.ranked_tier if opgg_stats else '' }}">
+                </div>
+                <div>
+                    <label for="lp" class="form-label">LP</label>
+                    <input type="number" id="lp" name="lp" min="0" step="1" value="{{ opgg_stats.lp if opgg_stats else '' }}">
+                </div>
+                <div>
+                    <label for="wins" class="form-label">Victorias</label>
+                    <input type="number" id="wins" name="wins" min="0" step="1" value="{{ opgg_stats.wins if opgg_stats else '' }}">
+                </div>
+                <div>
+                    <label for="losses" class="form-label">Derrotas</label>
+                    <input type="number" id="losses" name="losses" min="0" step="1" value="{{ opgg_stats.losses if opgg_stats else '' }}">
+                </div>
+                <div>
+                    <label for="kda" class="form-label">KDA</label>
+                    <input type="text" id="kda" name="kda" value="{{ opgg_stats.kda if opgg_stats else '' }}">
+                </div>
+                <div>
+                    <label for="main_champion" class="form-label">Campeón principal</label>
+                    <input type="text" id="main_champion" name="main_champion" value="{{ opgg_stats.main_champion if opgg_stats else '' }}">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-warning mt-3 rounded-pill px-4">Guardar estadísticas</button>
+        </form>
+    </div>
+</section>
+
+{% if opgg_stats %}
+<section class="card shadow brutus-card">
+    <div class="card-body">
+        <h3 class="mb-3">Resumen actual</h3>
+        <div class="dashboard-grid">
+            <div class="dashboard-box">
+                <p class="label">Invocador</p>
+                <p class="value">{{ opgg_stats.summoner_name }}</p>
+            </div>
+            <div class="dashboard-box">
+                <p class="label">Región</p>
+                <p class="value">{{ opgg_stats.region|upper }}</p>
+            </div>
+            <div class="dashboard-box">
+                <p class="label">Liga</p>
+                <p class="value">{{ opgg_stats.ranked_tier }} ({{ opgg_stats.lp }} LP)</p>
+            </div>
+            <div class="dashboard-box">
+                <p class="label">W/L</p>
+                <p class="value">{{ opgg_stats.wins }} / {{ opgg_stats.losses }}</p>
+            </div>
+            <div class="dashboard-box">
+                <p class="label">KDA</p>
+                <p class="value">{{ opgg_stats.kda }}</p>
+            </div>
+            <div class="dashboard-box">
+                <p class="label">Main</p>
+                <p class="value">{{ opgg_stats.main_champion }}</p>
+            </div>
+        </div>
+        <a class="btn btn-outline-light btn-sm rounded-pill mt-3" href="{{ opgg_stats.profile_url }}" target="_blank" rel="noopener noreferrer">Ver perfil en OP.GG</a>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
