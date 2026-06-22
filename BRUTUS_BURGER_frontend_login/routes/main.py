@@ -55,17 +55,28 @@ def opgg_stats():
         if region not in {code for code, _ in SUPPORTED_OPGG_REGIONS}:
             flash("Selecciona una región válida.", "danger")
             return redirect(url_for("main.opgg_stats"))
+        try:
+            lp_value = int(lp) if lp else 0
+            wins_value = int(wins) if wins else 0
+            losses_value = int(losses) if losses else 0
+        except ValueError:
+            flash("LP, victorias y derrotas deben ser números enteros.", "danger")
+            return redirect(url_for("main.opgg_stats"))
+        if lp_value < 0 or wins_value < 0 or losses_value < 0:
+            flash("LP, victorias y derrotas no pueden ser negativos.", "danger")
+            return redirect(url_for("main.opgg_stats"))
 
+        encoded_region = quote(region, safe="")
         encoded_summoner_name = quote(summoner_name)
-        profile_url = f"https://www.op.gg/summoners/{region}/{encoded_summoner_name}"
+        profile_url = f"https://www.op.gg/summoners/{encoded_region}/{encoded_summoner_name}"
 
         session["opgg_stats"] = {
             "summoner_name": summoner_name,
             "region": region,
             "ranked_tier": ranked_tier or "Sin registrar",
-            "lp": lp or "0",
-            "wins": wins or "0",
-            "losses": losses or "0",
+            "lp": str(lp_value),
+            "wins": str(wins_value),
+            "losses": str(losses_value),
             "kda": kda or "0.00",
             "main_champion": main_champion or "Sin registrar",
             "profile_url": profile_url,
