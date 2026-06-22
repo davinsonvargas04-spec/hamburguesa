@@ -9,14 +9,14 @@ SUPPORTED_OPGG_REGIONS = (
     ("br", "Brasil"),
     ("eune", "EUNE"),
     ("euw", "EUW"),
-    ("jp", "Japon"),
+    ("jp", "Japón"),
     ("kr", "Corea"),
     ("lan", "LAN"),
     ("las", "LAS"),
     ("na", "NA"),
-    ("oce", "Oceania"),
+    ("oce", "Oceanía"),
     ("ru", "Rusia"),
-    ("tr", "Turquia"),
+    ("tr", "Turquía"),
 )
 
 
