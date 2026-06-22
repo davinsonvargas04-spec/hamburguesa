@@ -5,6 +5,19 @@ from flask import Blueprint, flash, redirect, render_template, request, session,
 from routes.auth import login_required
 
 main_bp = Blueprint("main", __name__)
+SUPPORTED_OPGG_REGIONS = (
+    ("br", "Brasil"),
+    ("eune", "EUNE"),
+    ("euw", "EUW"),
+    ("jp", "Japon"),
+    ("kr", "Corea"),
+    ("lan", "LAN"),
+    ("las", "LAS"),
+    ("na", "NA"),
+    ("oce", "Oceania"),
+    ("ru", "Rusia"),
+    ("tr", "Turquia"),
+)
 
 
 @main_bp.route("/")
@@ -39,6 +52,9 @@ def opgg_stats():
         if not summoner_name or not region:
             flash("Invocador y región son obligatorios.", "danger")
             return redirect(url_for("main.opgg_stats"))
+        if region not in {code for code, _ in SUPPORTED_OPGG_REGIONS}:
+            flash("Selecciona una región válida.", "danger")
+            return redirect(url_for("main.opgg_stats"))
 
         encoded_summoner_name = quote(summoner_name)
         profile_url = f"https://www.op.gg/summoners/{region}/{encoded_summoner_name}"
@@ -57,4 +73,8 @@ def opgg_stats():
         flash("Estadísticas de OP.GG actualizadas.", "success")
         return redirect(url_for("main.opgg_stats"))
 
-    return render_template("opgg.html", opgg_stats=session.get("opgg_stats"))
+    return render_template(
+        "opgg.html",
+        opgg_stats=session.get("opgg_stats"),
+        supported_regions=SUPPORTED_OPGG_REGIONS,
+    )

@@ -15,7 +15,12 @@
                 </div>
                 <div>
                     <label for="region" class="form-label">Región (ej: las, lan, euw)</label>
-                    <input type="text" id="region" name="region" required value="{{ opgg_stats.region if opgg_stats else '' }}">
+                    <select id="region" name="region" class="form-select" required>
+                        <option value="">Selecciona una región</option>
+                        {% for code, name in supported_regions %}
+                        <option value="{{ code }}" {% if opgg_stats and opgg_stats.region == code %}selected{% endif %}>{{ code|upper }} - {{ name }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div>
                     <label for="ranked_tier" class="form-label">Liga</label>
@@ -77,7 +82,7 @@
                 <p class="value">{{ opgg_stats.main_champion }}</p>
             </div>
         </div>
-        <a class="btn btn-outline-light btn-sm rounded-pill mt-3" href="{{ opgg_stats.profile_url }}" target="_blank" rel="noopener">Ver perfil en OP.GG</a>
+        <a class="btn btn-outline-light btn-sm rounded-pill mt-3" href="{{ opgg_stats.profile_url }}" target="_blank" rel="noopener noreferrer">Ver perfil en OP.GG</a>
     </div>
 </section>
 {% endif %}
